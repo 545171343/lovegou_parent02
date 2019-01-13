@@ -1,5 +1,5 @@
 ﻿server:
-  port: 8002  #服务提供者
+  port: 8001  #服务提供者
 spring:
   application:
     name: lovegou-test
