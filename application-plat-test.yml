@@ -1,8 +1,8 @@
-server:
-  port: 8001  #服务提供者
+﻿server:
+  port: 8002  #服务提供者
 spring:
   application:
-    name: lovegou-plat-test
+    name: lovegou-test
 eureka:
   client:
     service-url:
