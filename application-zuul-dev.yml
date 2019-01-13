@@ -1,18 +1,20 @@
 ﻿server:
-  port: 4396
+  port: 9527
 spring:
   application:
     name: lovegou-zuul-gateway
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka
+     defaultZone: http://localhost:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
   instance:
-    instance-id: gateway-4396.com
-    prefer-ip-address: true
+    instance-id: gateway-9527.com #Eureka状态那一列显示的名字
+    prefer-ip-address: true #显示客户端真实ip
 zuul:
-  routes:
-    plat.serviceId: lovegou-plat #这是调用满足条件的服务名，注意要小写
-    plat.path: /plat/** #这是所有路径前的通配
-  ignored-services: "*" #用*来通配符，忽略从4396端口通过服务名来调用
-  prefix: "/services" #这是所有路径的前缀
+  routes:  #这一坨用来配置让我们的服务名不暴露，用别名plat代替，并且使用服务名不能访问，只能使用别名才能访问！
+    plat.serviceId: lovegou-dev #注意：前面的plat是随便写的，但后面的serviceId不能随便写！！！
+    plat.path: /plat/** #以/plat/开头的所有路径都转发给plat-provider
+    #product.serviceId: aigou-product 
+    #product.path: /product/** 
+  ignored-services: "*" #可以一个一个配置，但是很麻烦，-》因此用*来通配-代替
+  prefix: "/services" #加上统一前缀
