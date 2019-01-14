@@ -6,7 +6,7 @@ spring:
 eureka:
   client:
     service-url:
-     defaultZone: http://localhost:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
+      defaultZone: http://localhost:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
   instance:
     instance-id: gateway-9527.com #Eureka状态那一列显示的名字
     prefer-ip-address: true #显示客户端真实ip
